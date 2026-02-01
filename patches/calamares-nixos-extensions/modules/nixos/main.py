@@ -133,8 +133,8 @@ cfgusers = """  # Define a user account. Don't forget to set a password with ‘
 """
 
 cfgautologin = """  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "@@username@@";
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = "@@username@@";
 
 """
 
@@ -537,7 +537,7 @@ def run():
     # Setup user
     if gs.value("username") is not None:
         fullname = gs.value("fullname")
-        groups = ["networkmanager", "wheel", "scanner", "lp", "disk"]
+        groups = ["networkmanager", "wheel", "scanner", "lp", "disk","input", "render", "video"]
 
         cfg += cfgusers
         catenate(variables, "username", gs.value("username"))
